@@ -27,3 +27,13 @@ ggplot(data = penguins) +
   ylab("Massa Corporal (g)") +
   ggtitle("Relação entre Massa Corporal e Comprimento das Nadadeiras")
 ```
+### Outra alternativa
+Podemos realizar a mesma análise de um jeito diferente, usando a função facet_wrap() que criar um gráfico diferente para cada variável, que no nosso caso são as espécies de pinguins.
+```{r}
+ggplot(data=penguins)+
+  geom_point(mapping = aes(x=flipper_length_mm,y=body_mass_g,color=species))+
+  facet_wrap(~species)+
+  xlab("Comprimento das Nadadeiras (mm)") +
+  ylab("Massa Corporal (g)") +
+  ggtitle("Relação entre Massa Corporal e Comprimento das Nadadeiras")
+```
